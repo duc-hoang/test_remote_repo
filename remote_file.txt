@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-dude - master2
-=======
-dude1 - branch
->>>>>>> testBranch
+master
