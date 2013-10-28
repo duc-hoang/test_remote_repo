@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section id="main">
+		<ul id="request-list">
+		</ul>
+	</section>
+	<script type="text/template" id="request-item-template">
+		<div>
+			<input class="toggle" type="checkbox" <%= selected ? "checked":"">></input>
+			<a class="request-link"><%- id -></a>
+			<label><%- title -></label>
+			<label><%- status -></label>
+		</div>
+	</script>
+</body>
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/underscore.js"></script>
+<script src="js/lib/backbone.js"></script>
+<script src="js/lib/backbone.localStorage.js"></script>
+<script src="js/models/request-model.js"></script>
+<script src="js/models/user-model.js"></script>
+<script src="js/collections/request-collection.js"></script>
+<script src="js/view/request-view.js"></script>
+</html>
