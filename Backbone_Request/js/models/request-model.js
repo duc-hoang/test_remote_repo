@@ -1,6 +1,6 @@
 var session = session || {};
 (function(){})(
-	user.request = Backbone.Model.extend({
+	session.user.request = Backbone.Model.extend({
 		defaults:{
 			id:'',
 			title:'',

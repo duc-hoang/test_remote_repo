@@ -3,9 +3,8 @@ var session = session || {};
 	session.user = Backbone.Model.extend({
 		defaults:{
 			id:'',
-			firstName:"",
-			lastName:"",
-			requests : session.requests,
+			firstName:"Duc",
+			lastName:"Hoang",
 		}
 	});
 })();	

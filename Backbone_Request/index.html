@@ -2,13 +2,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>DAH</title>
 </head>
 <body>
-	<section id="main">
+	<section id="request-main">
+		<header id="request-header">
+		</header>
 		<ul id="request-list">
 		</ul>
 	</section>
+	<script type="text/template" id="user-template">
+		<div>
+			<label> Listing requests for <%- firstName %> <%- lastName %><label>
+		</div>
+	</script>
 	<script type="text/template" id="request-item-template">
 		<div>
 			<input class="toggle" type="checkbox" <%= selected ? "checked":"">></input>
@@ -22,8 +29,12 @@
 <script src="js/lib/underscore.js"></script>
 <script src="js/lib/backbone.js"></script>
 <script src="js/lib/backbone.localStorage.js"></script>
-<script src="js/models/request-model.js"></script>
+<script src="js/lib/sinon.js"></script>
 <script src="js/models/user-model.js"></script>
+<script src="js/models/request-model.js"></script>
 <script src="js/collections/request-collection.js"></script>
-<script src="js/view/request-view.js"></script>
+<script src="js/views/request-item-view.js"></script>
+<script src="js/views/request-view.js"></script>
+<script src="js/request.js"></script>
+<script src="js/test/sinon-test.js"></script>
 </html>
