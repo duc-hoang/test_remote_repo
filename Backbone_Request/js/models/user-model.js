@@ -1,10 +1,12 @@
 var session = session || {};
 (function(){
-	session.user = Backbone.Model.extend({
+	user = Backbone.Model.extend({
 		defaults:{
 			id:'',
 			firstName:"Duc",
 			lastName:"Hoang",
+			authenticated:false
 		}
 	});
+	session.currentUser = new user();
 })();	

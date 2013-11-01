@@ -10,10 +10,10 @@ var session = session || {};
 			});
 		},
 		initialize: function(){
-			console.log("Intitializing");
-			this.render();
+			this.listenTo(session.currentUser,"change:authenticated",this.render);
 		},
 		render: function(){
+			console.log("Rendering");
 			this.$("#request-header").html(this.userTemplate({
 					firstName:currentUser.get("firstName"),
 					lastName:currentUser.get("lastName"),
