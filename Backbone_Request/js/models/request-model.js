@@ -8,9 +8,10 @@ var session = session || {};
 			selected:false
 		},
 		toggle:function(){
+			selected : !this.get("selected");
 			this.save({
 				selected : !this.get("selected")
 			});
-		}
+		},
 	})	
 );

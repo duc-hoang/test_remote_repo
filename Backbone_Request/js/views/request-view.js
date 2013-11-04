@@ -10,7 +10,7 @@ var session = session || {};
 			});
 		},
 		initialize: function(){
-			this.listenTo(session.currentUser,"change:authenticated",this.render);
+			this.listenTo(currentUser,"change:authenticated",this.userLoggedInEventHandler);
 		},
 		render: function(){
 			console.log("Rendering");
@@ -18,6 +18,9 @@ var session = session || {};
 					firstName:currentUser.get("firstName"),
 					lastName:currentUser.get("lastName"),
 			})); 
+		},
+		userLoggedInEventHandler: function(){
+			console.log("User "+currentUser.get("firstName")+" "+currentUser.get("lastName")+ " is authenticated " +currentUser.get("authenticated"));
 		}
 	});
 })(jQuery); 

@@ -1,5 +1,20 @@
-describe("Change user authenticated status", function() {
-   var expected = 4;
-   var result = (2 + 2);
-   ok(result == expected,"2 plus 2 was not 4, universe broken. Good luck fixing that.");
+function say(msg){
+		console.log(msg);
+	};
+describe("Test user fetcj",function(){
+	var server= {};
+	beforeEach(function(){
+		server = sinon.fakeServer.create();
+	});
+	it(":It should call the request view user logged in event handler", function(){
+		currentUser = new user();
+		var requestView = new session.RequestView();
+		var spy = sinon.spy(requestView.userLoggedInEventHandler);
+		server.respondWith("GET","/user",[200,
+		                                  	{"Contect-Type":"application/json"},
+		                                  	'{"id": 12, "firstName":"Duc", "lastName":"Hoang","authenticated":true}']);
+		currentUser.fetch();
+	    server.respond();
+	    console.log(spy.called);
+	});
 });
