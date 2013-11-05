@@ -1,5 +1,5 @@
 var session = session || {};
-(function(){})(
+(function(){
 	request = Backbone.Model.extend({
 		defaults:{
 			id:'',
@@ -12,6 +12,7 @@ var session = session || {};
 			this.save({
 				selected : !this.get("selected")
 			});
-		},
-	})	
-);
+		}
+	});	
+	//session.requestItem = new request();
+})();

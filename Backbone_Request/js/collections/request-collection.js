@@ -1,7 +1,8 @@
 var session = session || {};
 (function(){
 	var RequestList = Backbone.Collection.extend({
-		model:session.user.request
+		model:request,
+		url:"/requests"
 	});
-	session.requestItems = new RequestList(); 
-});
+	session.Requests = new RequestList();
+})();

@@ -2,31 +2,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>QUnit Test Suite</title>
-</head>
-<body>
-	<section id="request-main">
-		<header id="request-header">
-		</header>
-		<ul id="request-list">
-		</ul>
-	</section>
-	<script type="text/template" id="user-template">
-		<div>
-			<label> Listing requests for <%- firstName %> <%- lastName %><label>
-		</div>
-	</script>
-	<script type="text/template" id="request-item-template">
-		<div>
-			<input class="toggle" type="checkbox" <%= selected ? "checked":"">></input>
-			<a class="request-link"><%- id -></a>
-			<label><%- title -></label>
-			<label><%- status -></label>
-		</div>
-	</script>
-	
-	
-</body>
+<title>Test Suite</title>
+
 <!-- project stuff -->
 <script type="text/javascript" src="../lib/jquery.js"></script>
 <script type="text/javascript" src="../lib/underscore.js"></script>
@@ -36,8 +13,8 @@
 <script type="text/javascript" src="../models/user-model.js"></script>
 <script type="text/javascript" src="../models/request-model.js"></script>
 <script type="text/javascript" src="../collections/request-collection.js"></script>
-<script type="text/javascript" src="../views/request-item-view.js"></script>
-<script type="text/javascript" src="../views/request-view.js"></script>
+<!-- <script type="text/javascript" src="../views/request-item-view.js"></script>
+<script type="text/javascript" src="../views/request-view.js"></script> -->
 
 
 <!-- testing stuff -->
@@ -46,6 +23,7 @@
 <script type="text/javascript" src="jasmine/jasmine-html.js"></script>
 <script type="text/javascript" src="sinon/sinon.js"></script>
 <script type="text/javascript" src="test.js"></script>
+<script type="text/javascript" src="test_request_data.js"></script>
 
 <script type="text/javascript">
     (function() {
@@ -75,4 +53,7 @@
 
     })();
 </script>
+</head>
+<body>
+</body>
 </html>
