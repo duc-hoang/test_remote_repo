@@ -14,18 +14,18 @@
 				selected : !this.get("selected")
 			});
 		},
-		validate: function(attrs){
+		validate: function(){
 			var errors = this.errors = {};
-			if (!attrs.id || attrs.id == ''){
+			if (!this.attributes.id || this.attributes.id == ''){
 				errors.missingId = "Request ID is missing";
 			}
-			if (!attrs.title || attrs.title == ''){
+			if (!this.attributes.title || this.attributes.title == ''){
 				errors.missingTitle = "Title is missing";
 			}
-			if (!attrs.requestorId || attrs.requestorId == ''){
+			if (!this.attributes.requestorId || this.attributes.requestorId == ''){
 				errors.missingRequestorId = "Requestor ID is missing";
 			}
-			if (!attrs.beneficiaryId || attrs.beneficiaryId == ''){
+			if (!this.attributes.beneficiaryId || this.attributes.beneficiaryId == ''){
 				errors.missingBeneficiaryId = "Beneficiaty ID is missing";
 			}
 			if (!_.isEmpty(errors))
