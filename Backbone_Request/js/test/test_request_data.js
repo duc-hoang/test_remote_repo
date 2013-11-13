@@ -1,4 +1,5 @@
 var testDataGenerator = {};
+var NUMBER_OF_REQUESTS = 5;
 testDataGenerator.getRequestsJSON = function(){
 	var testRequestsJSON = [];
 	var myCustomArray = function(elements){
@@ -11,7 +12,7 @@ testDataGenerator.getRequestsJSON = function(){
 	var statuses = new myCustomArray(), titles = new myCustomArray();
 	statuses.elements = ["Approved","Denied","Pending","Error"];
 	titles.elements = ["Resource Request","Entitlement Request","Policy Request"];
-	for (var i=0; i < 5; i++){
+	for (var i=0; i < NUMBER_OF_REQUESTS; i++){
 		testRequestsJSON.push({
 			id:i,
 			title:titles.getRandomElement(),

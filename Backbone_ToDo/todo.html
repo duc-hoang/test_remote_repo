@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ToDo MVC</title>
+  <meta name="description" content="">
+</head>
+<body>
+  <div id="todo">
+  	<input id="chkBox" type="checkbox" />
+  </div>
+  <script type="text/template" id="item-template">
+    <div>
+      <input id="todo_complete" type="checkbox" {{ completed ? 'checked="checked"' : '' }} />
+      {{ title }}
+    </div>
+  </script>
+  <script src="jquery-1.10.2.js"></script>
+  <script src="underscore.js"></script>
+  <script src="backbone.js"></script>
+  <script src="model.js"></script>
+  <script src="view.js"></script>
+  <script src="handlebars.js"></script>
+</body>
+</html>

@@ -13,16 +13,6 @@ describe("Test request model object", function(){
 		expect(testRequest.save).toHaveBeenCalledWith({selected:!testRequest.get("selected")});
 		testRequest.save.reset();
 	});
-	it("Should call validate method before calling save", function(){
-		var testRequest = new request();
-		spyOn(testRequest,"validate");
-		spyOn(testRequest,"save");
-		testRequest.toggle();
-		expect(testRequest.validate).toHaveBeenCalled();
-		expect(testRequest.save).toHaveBeenCalled();
-		testRequest.validate.reset();
-		testRequest.save.reset();
-	});
 	it("Should raise an error when saving the request with empty id", function(){
 		var testRequest = new request();
 		testRequest.toggle();
@@ -30,28 +20,6 @@ describe("Test request model object", function(){
 		testRequest.toggle();
 		expect(testRequest.validate).toHaveBeenCalled();
 		testRequest.validate.reset();
-	});
-});
-
-/*describe("Test user model object",function(){
-	describe("Test user login", function(){
-		beforeEach(function(){
-			server = sinon.fakeServer.create();
-			server.respondWith("GET","/user",[200,
-			                                  	{"Contect-Type":"application/json"},
-			                                  	'{"id": 12, "firstName":"Duc", "lastName":"Hoang","authenticated":true}']);
-		});
-		it("Should call the request view user logged in event handler", function(){
-			currentUser = new user();
-			var requestView = new session.RequestView();
-			var spy = sinon.spy(requestView.userLoggedInEventHandler);
-			currentUser.fetch();
-		    server.respond();
-		    expect(currentUser.get("authenticated")).toEqual(true);
-		});
-		afterEach(function(){
-			server.restore();
-		});
 	});
 });
 
@@ -63,14 +31,38 @@ describe("Test request collection object", function(){
 			                                  	{"Contect-Type":"application/json"},
 			                                  	JSON.stringify(testDataGenerator.getRequestsJSON())]);
 		});
-		it ("Should fetch the requests", function(){
+		it ("Should make one ajax call to the server", function(){
+			spyOn(Backbone,"ajax");
 			session.Requests.fetch();
 			server.respond();
-			expect(session.Requests).toBeDefined();
+			expect(Backbone.ajax.callCount).toEqual(1);
 		});
 		afterEach(function(){
 			server.restore();
+			Backbone.ajax.reset();
 		});
 	});
+});
+
+/*describe("Test user model object",function(){
+describe("Test user login", function(){
+	beforeEach(function(){
+		server = sinon.fakeServer.create();
+		server.respondWith("GET","/user",[200,
+		                                  	{"Contect-Type":"application/json"},
+		                                  	'{"id": 12, "firstName":"Duc", "lastName":"Hoang","authenticated":true}']);
+	});
+	it("Should call the request view user logged in event handler", function(){
+		currentUser = new user();
+		var requestView = new session.RequestView();
+		var spy = sinon.spy(requestView.userLoggedInEventHandler);
+		currentUser.fetch();
+	    server.respond();
+	    expect(currentUser.get("authenticated")).toEqual(true);
+	});
+	afterEach(function(){
+		server.restore();
+	});
+});
 });
 */
