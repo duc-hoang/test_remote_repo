@@ -13,11 +13,12 @@ describe("Test request model object", function(){
 		expect(testRequest.save).toHaveBeenCalledWith({selected:!testRequest.get("selected")});
 		testRequest.save.reset();
 	});
-	it("Should raise an error when saving the request with empty id", function(){
+	it("Should fail validation when saving an empty request", function(){
 		var testRequest = new request();
 		testRequest.toggle();
+		testRequest.set("id","");
 		spyOn(testRequest,"validate").andCallThrough();
-		testRequest.toggle();
+		testRequest.validate();
 		expect(testRequest.validate).toHaveBeenCalled();
 		testRequest.validate.reset();
 	});
