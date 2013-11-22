@@ -1,4 +1,4 @@
 var session = session || {};
 (function($){
-	new session.RequestView();
+	new RequestView();
 })(jQuery);

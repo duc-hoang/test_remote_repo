@@ -6,7 +6,7 @@
 			requestorId:'',
 			beneficiaryId:'',
 			status:'Pending',
-			selected:false
+			selected:false,
 		},
 		toggle:function(){
 			selected : !this.get("selected");
@@ -14,22 +14,23 @@
 				selected : !this.get("selected")
 			});
 		},
-		validate: function(){
-			var errors = this.errors = {};
-			if (!this.attributes.id || this.attributes.id == ''){
-				errors.missingId = "Request ID is missing";
+		validate: function(attributes){
+			if (!attributes.id || attributes.id == ''){
+				validationError = "Request ID is missing";
 			}
-			if (!this.attributes.title || this.attributes.title == ''){
-				errors.missingTitle = "Title is missing";
+			if (!attributes.title || attributes.title == ''){
+				validationError = "Title is missing";
 			}
-			if (!this.attributes.requestorId || this.attributes.requestorId == ''){
-				errors.missingRequestorId = "Requestor ID is missing";
+			if (!attributes.requestorId || attributes.requestorId == ''){
+				validationError = "Requestor ID is missing";
 			}
-			if (!this.attributes.beneficiaryId || this.attributes.beneficiaryId == ''){
-				errors.missingBeneficiaryId = "Beneficiaty ID is missing";
+			if (!attributes.beneficiaryId || attributes.beneficiaryId == ''){
+				validationError = "Beneficiaty ID is missing";
 			}
-			if (!_.isEmpty(errors))
-				return errors;
+			if (!attributes.status || attributes.status == ''){
+				validationError = "Beneficiaty ID is missing";
+			}
+			return validationError;
 		},
 		url:function(){
 			return "request/"+this.get("id")+"/store";

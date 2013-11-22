@@ -1,30 +1,32 @@
 var server= {};
 
 describe("Test request model object", function(){
-	it("Should create an request object with default values", function(){
-		var testRequest = new request();
-		expect(testRequest).toBeDefined();
-		expect(testRequest.get("status")).toEqual("Pending");
+	describe("Test request model object creation", function(){
+		it("Should create an request object with default values", function(){
+			var testRequest = new request();
+			expect(testRequest).toBeDefined();
+			expect(testRequest.get("status")).toEqual("Pending");
+		});
 	});
-	it("Should trigger save method when toggle the selected state", function(){
-		var testRequest = new request();
-		spyOn(testRequest,"save");
-		testRequest.toggle();
-		expect(testRequest.save).toHaveBeenCalledWith({selected:!testRequest.get("selected")});
-		testRequest.save.reset();
+	describe("Test request model object validation", function(){
+		it("Should fail validation when setting a null ID", function(){
+			var testRequest = new request();
+			testRequest.set({id:''},{validate:true});
+			expect(testRequest.validationError).toBe('Beneficiaty ID is missing');
+		});
 	});
-	it("Should fail validation when saving an empty request", function(){
-		var testRequest = new request();
-		testRequest.toggle();
-		testRequest.set("id","");
-		spyOn(testRequest,"validate").andCallThrough();
-		testRequest.validate();
-		expect(testRequest.validate).toHaveBeenCalled();
-		testRequest.validate.reset();
+	describe("Test request model object syncing", function(){
+		it("Should trigger save method when toggle the selected state", function(){
+			var testRequest = new request();
+			spyOn(testRequest,"save");
+			testRequest.toggle();
+			expect(testRequest.save).toHaveBeenCalledWith({selected:!testRequest.get("selected")});
+			testRequest.save.reset();
+		});
 	});
 });
 
-describe("Test request collection object", function(){
+/*describe("Test request collection object", function(){
 	describe("Test fetch requests for user", function(){
 		beforeEach(function(){
 			server = sinon.fakeServer.create();
@@ -43,7 +45,7 @@ describe("Test request collection object", function(){
 			Backbone.ajax.reset();
 		});
 	});
-});
+});*/
 
 /*describe("Test user model object",function(){
 describe("Test user login", function(){
