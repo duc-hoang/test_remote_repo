@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>	
+<body>
+	<h3>Requests</h3>
+	<ul id="request-list">
+	</ul>
+	
+	<script id="request-template" type="text/template">
+		{#requests}
+			<li>
+				{title}
+			</li>
+		{/requests}
+	</script>
+
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-full.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+	
+	<script type="text/javascript">
+	(function(jQuery){
+		$.getJSON('requests.json', function(data){
+			console.log(data);
+			var compiled_template = dust.compile($('#request-template').html(),'request_template');	
+			dust.loadSource(compiled_template);
+			dust.render('request_template',data,function(err, result){
+				$('#request-list').html(result);
+			});
+		});
+	})($);
+		
+	</script>
+</body>
+</html>
+
+
