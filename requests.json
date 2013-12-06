@@ -8,5 +8,5 @@
 	{"id":6,"title":"Resource Request","status":"Error","beneficiary":{"name":"Van Halie", "userid":"v.halie"}},
 	{"id":7,"title":"Resource Request","status":"Error","beneficiary":{"name":"Ax Rosey", "userid":"a.rosey"}},
 	{"id":8,"title":"Policy Request","status":"Denied","beneficiary":{"name":"Jon Bovi", "userid":"j.bovi"}},
-	{"id":9,"title":"Policy Request","status":"Error","beneficiary":{"name":"Joanna Lett", "userid":"j.lett"}},
+	{"id":9,"title":"Policy Request","status":"Error","beneficiary":{"name":"Joanna Lett", "userid":"j.lett"}}]
 }
